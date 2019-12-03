@@ -1,0 +1,335 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SELECT * FROM patient
+--------------
+
+Empty set (0.00 sec)
+
+ERROR 2 (HY000) at line 6: File 'loaddatafall2019.txt' not found (Errcode: 2 - No such file or directory)
+--------------
+LOAD DATA LOCAL INFILE 'loaddatafall2019.txt' INTO TABLE patient FIELDS TERMINATED BY ','
+--------------
+
+--------------
+INSERT INTO patient(ohip,firstname,lastname) VALUES ('222444555','Laura', 'Reid')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+SELECT * FROM patient
+--------------
+
++-----------+-----------+----------+
+| ohip      | firstname | lastname |
++-----------+-----------+----------+
+| 222444555 | Laura     | Reid     |
++-----------+-----------+----------+
+1 row in set (0.00 sec)
+
+--------------
+SELECT * FROM doctor
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('RD34','Bernie', 'Kavorikian', 'Urologist','1980-9-9')
+--------------
+
+Query OK, 1 row affected (0.23 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('GD56','Joey', 'Shabado', 'Padiatrist','1960-6-24')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('HT45','Ross', 'Clooney', 'Surgeon','1987-6-20')
+--------------
+
+Query OK, 1 row affected (0.02 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('YT67','Ben', 'Spock', 'Pediatritian','1955-2-20')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('JK78','Mandy', 'Webster', 'Surgeon','1990-8-8')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('SE66','Colleen', 'Aziz', 'Surgeon','1989-8-24')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO doctor (docLicNum,firstName,lastName,speciality,licenseDate) VALUES ('JM33','Phil', 'McGraw', 'Urologist','1980-9-9')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+SELECT * FROM doctor
+--------------
+
++-----------+-----------+------------+--------------+-------------+------------+
+| docLicNum | firstName | lastName   | speciality   | licenseDate | hosWorksAt |
++-----------+-----------+------------+--------------+-------------+------------+
+| GD56      | Joey      | Shabado    | Padiatrist   | 1960-06-24  | NULL       |
+| HT45      | Ross      | Clooney    | Surgeon      | 1987-06-20  | NULL       |
+| JK78      | Mandy     | Webster    | Surgeon      | 1990-08-08  | NULL       |
+| JM33      | Phil      | McGraw     | Urologist    | 1980-09-09  | NULL       |
+| RD34      | Bernie    | Kavorikian | Urologist    | 1980-09-09  | NULL       |
+| SE66      | Colleen   | Aziz       | Surgeon      | 1989-08-24  | NULL       |
+| YT67      | Ben       | Spock      | Pediatritian | 1955-02-20  | NULL       |
++-----------+-----------+------------+--------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM hospital
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+INSERT INTO hospital VALUES ('BBC', 'St. Joseph', 'London','On', 1000, 'GD56', '1999-9-10')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO hospital VALUES ('ABC', 'Victoria', 'London','On', 1600, 'YT67', '1997-12-7')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO hospital VALUES ('DDE', 'Victoria', 'Victoria', 'BC', 1200, 'SE66', '1994-12-5')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+SELECT * FROM hospital
+--------------
+
++---------+------------+----------+----------+---------+---------+------------------+
+| hosCode | name       | city     | province | numBeds | headDoc | headDocStartDate |
++---------+------------+----------+----------+---------+---------+------------------+
+| ABC     | Victoria   | London   | On       |    1600 | YT67    | 1997-12-07       |
+| BBC     | St. Joseph | London   | On       |    1000 | GD56    | 1999-09-10       |
+| DDE     | Victoria   | Victoria | BC       |    1200 | SE66    | 1994-12-05       |
++---------+------------+----------+----------+---------+---------+------------------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM treats
+--------------
+
+Empty set (0.00 sec)
+
+ERROR 1406 (22001) at line 36: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 37: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 38: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 39: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 40: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 41: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 42: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 43: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 44: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 45: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 46: Data too long for column 'docLicNum' at row 1
+ERROR 1406 (22001) at line 47: Data too long for column 'docLicNum' at row 1
+--------------
+INSERT INTO treats VALUES ('GD56', '110112113')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('YT67', '111222111')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('SE66', '111222333')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('YT67', '111222333')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('JK78', '111222333')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('GD56', '333444555')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('HT45', '444555666')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('JK78', '444555666')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('YT67', '667766777')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('JK78', '667766777')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('GD56', '667766777')
+--------------
+
+--------------
+INSERT INTO treats VALUES ('JM33', '222444555')
+--------------
+
+--------------
+SELECT * FROM treats
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+SELECT * FROM doctor
+--------------
+
++-----------+-----------+------------+--------------+-------------+------------+
+| docLicNum | firstName | lastName   | speciality   | licenseDate | hosWorksAt |
++-----------+-----------+------------+--------------+-------------+------------+
+| GD56      | Joey      | Shabado    | Padiatrist   | 1960-06-24  | NULL       |
+| HT45      | Ross      | Clooney    | Surgeon      | 1987-06-20  | NULL       |
+| JK78      | Mandy     | Webster    | Surgeon      | 1990-08-08  | NULL       |
+| JM33      | Phil      | McGraw     | Urologist    | 1980-09-09  | NULL       |
+| RD34      | Bernie    | Kavorikian | Urologist    | 1980-09-09  | NULL       |
+| SE66      | Colleen   | Aziz       | Surgeon      | 1989-08-24  | NULL       |
+| YT67      | Ben       | Spock      | Pediatritian | 1955-02-20  | NULL       |
++-----------+-----------+------------+--------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+--------------
+UPDATE doctor SET hosWorksAt = 'BBC' WHERE docLicNum = 'RD34'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'BBC' WHERE docLicNum = 'GD56'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'DDE' WHERE docLicNum = 'HT45'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'DDE' WHERE docLicNum = 'YT67'
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'BBC' WHERE docLicNum = 'JK78'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'ABC' WHERE docLicNum = 'SE66'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+UPDATE doctor SET hosWorksAt = 'ABC' WHERE docLicNum = 'JM33'
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+SELECT * FROM doctor
+--------------
+
++-----------+-----------+------------+--------------+-------------+------------+
+| docLicNum | firstName | lastName   | speciality   | licenseDate | hosWorksAt |
++-----------+-----------+------------+--------------+-------------+------------+
+| GD56      | Joey      | Shabado    | Padiatrist   | 1960-06-24  | BBC        |
+| HT45      | Ross      | Clooney    | Surgeon      | 1987-06-20  | DDE        |
+| JK78      | Mandy     | Webster    | Surgeon      | 1990-08-08  | BBC        |
+| JM33      | Phil      | McGraw     | Urologist    | 1980-09-09  | ABC        |
+| RD34      | Bernie    | Kavorikian | Urologist    | 1980-09-09  | BBC        |
+| SE66      | Colleen   | Aziz       | Surgeon      | 1989-08-24  | ABC        |
+| YT67      | Ben       | Spock      | Pediatritian | 1955-02-20  | DDE        |
++-----------+-----------+------------+--------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM patient
+--------------
+
++-----------+-----------+----------+
+| ohip      | firstname | lastname |
++-----------+-----------+----------+
+| 222444555 | Laura     | Reid     |
++-----------+-----------+----------+
+1 row in set (0.00 sec)
+
+--------------
+UPDATE patient SET lastname = 'Brown' WHERE ohip='111222111'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+--------------
+SELECT * FROM patient
+--------------
+
++-----------+-----------+----------+
+| ohip      | firstname | lastname |
++-----------+-----------+----------+
+| 222444555 | Laura     | Reid     |
++-----------+-----------+----------+
+1 row in set (0.00 sec)
+
+--------------
+SELECT * FROM treats
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+UPDATE treats SET docLicNum = (SELECT docLicNum FROM doctor WHERE lastname = 'Aziz') WHERE docLicNum = (SELECT docLicNum FROM doctor WHERE lastname = 'Spock')
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+--------------
+SELECT * FROM treats
+--------------
+
+Empty set (0.00 sec)
+
+Bye

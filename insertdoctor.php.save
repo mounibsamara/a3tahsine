@@ -1,0 +1,16 @@
+<html>
+<body>
+
+<?php
+ include "conectDB.php"
+?>
+
+<?php
+$doclicnum = $_POST["licnum"];
+$firstname = $_POST["fname"];
+$lastname = $_POST["lname"];
+$specialty = $_POST["special"];
+$ldate = $_POST["ldate"];
+$hospital = $_POST["whos"];
+
+if(empty($doclicnum

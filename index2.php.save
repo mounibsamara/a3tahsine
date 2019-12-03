@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dr. Western's Vet Clinic</title>
+</head>
+<body>
+<?php
+include 'connectDB.php';
+?>
+<form action="getdata.php" method="post">
+    <input type="radio" name="nameOrder" value="firstName ASC"> First name Ascending <br>
+    <input type="radio" name="nameOrder" value="firstName DESC"> First name Descending <br>
+    <input type="radio" name="nameOrder" value="lastName ASC"> Last name Ascending <br>
+    <input type="radio" name="nameOrder" value="lastName DESC"> Last name Descending<br>
+    <br>
+    <input type="submit" value="Submit Name Order">
+</form>
+
+<br>
+<hr>
+<br>
+
+<form action="listdoctors.php" method="post">
+  doctors licensed before this date:
+  <input type="text" name="udate" maxLength="4">
+  <br>
+  <input type="submit" value="push Date">
+</form>
+
+<br>
+<hr>
+<br>
+
+<form action="insertdoctor.php" method="post">
+  Insert a new doctor:
+  <br>
+  doctor license number:
+  <input type="text" name="licnum" maxLength="8">
+  <br>
+  First Name:
+  <input type="text" name="fname" maxlength="12">
+  <br>
+  Last Name:
+  <input type="text" name="lname" maxlength="12">
+  <br>
+  Specialty:
+  <input type="text" name="special" maxLength="15">
+  <br>
+  Date of license received:
+  <input type="date" name="ldate" maxlength="12">
+  <br>
+  Hospital of employment:
+  <input type="text" name="whos" maxlength="15" required="required">
+  <br>
+  <input type="submit" value="add doctor">
+</form>
+
+<?php
+ mysqli_close($connection);
+?>
+
+</body>
+</html>
